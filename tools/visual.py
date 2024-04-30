@@ -33,8 +33,8 @@ colors = np.array(
 
 #mlab.options.offscreen = True
 
-voxel_size = 0.5
-pc_range = [-50, -50,  -5, 50, 50, 3]
+voxel_size = 1.0
+pc_range = [-0, 0, 0, 50, 50, 3]
 
 visual_path = sys.argv[1]
 fov_voxels = np.load(visual_path)
@@ -47,7 +47,7 @@ fov_voxels[:, 2] += pc_range[2]
 
 
 #figure = mlab.figure(size=(600, 600), bgcolor=(1, 1, 1))
-figure = mlab.figure(size=(2560, 1440), bgcolor=(1, 1, 1))
+figure = mlab.figure(size=(2560, 1440), bgcolor=(0, 0, 0))
 # pdb.set_trace()
 plt_plot_fov = mlab.points3d(
     fov_voxels[:, 0],
@@ -55,7 +55,7 @@ plt_plot_fov = mlab.points3d(
     fov_voxels[:, 2],
     fov_voxels[:, 3],
     colormap="viridis",
-    scale_factor=voxel_size - 0.05*voxel_size,
+    scale_factor=voxel_size - 0.01*voxel_size,
     mode="cube",
     opacity=1.0,
     vmin=0,
